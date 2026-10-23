@@ -1,23 +1,30 @@
 # My Voice AI
 
-A personal writing assistant that studies examples of your writing, builds a style profile, and creates new drafts in a similar voice.
+A personal writing assistant that learns from your writing samples and creates new drafts in a similar style.
 
-## Deploy on Render
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/cbrawl2011-bit/my-voice-ai)
 
-1. Sign in to Render and choose **New → Blueprint**.
-2. Connect this GitHub repository: https://github.com/cbrawl2011-bit/my-voice-ai
-3. Render reads `render.yaml` and creates the web service.
-4. In the service environment settings, add:
-   - `OPENAI_API_KEY`: your OpenAI API key
-   - `SITE_PASSWORD`: choose a private password for your website
-   - `OPENAI_MODEL`: defaults to `gpt-5.5`; change it if your API account uses another model
-5. Deploy and open the Render URL. Enter your site password to use the AI.
+## Put it online
 
-Never put your API key in frontend code or commit it to GitHub. API usage may cost money separately from a ChatGPT subscription.
+1. Click **Deploy to Render** above and sign in to Render.
+2. Connect the `cbrawl2011-bit/my-voice-ai` repository and approve the Blueprint.
+3. During setup, supply your OpenAI API key as `OPENAI_API_KEY`.
+4. Choose a private password and set it as `SITE_PASSWORD`.
+5. Deploy the service. Render will give you a URL for the website.
 
-## Run locally
+The app is configured by `render.yaml`. Keep API keys private: put them in Render's Environment settings, never in HTML, Python source, or GitHub. OpenAI API usage may cost money separately from a ChatGPT subscription.
 
-Python 3.10+ is recommended.
+## Features
+
+- Analyze your writing samples to create a practical writing-style profile.
+- Generate drafts for schoolwork, messages, and other writing.
+- Save your samples and profile locally in your browser.
+- Copy drafts and export the profile to a JSON file.
+- Use a site password to protect the AI endpoints on a public deployment.
+
+## Run on your computer
+
+Python 3.12 is recommended.
 
 ```bash
 python -m venv .venv
@@ -26,7 +33,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Set `OPENAI_API_KEY` in your environment, then run:
+Set `OPENAI_API_KEY` in your local environment or a local `.env` file, then run:
 
 ```bash
 python app.py
@@ -36,4 +43,6 @@ Open http://127.0.0.1:5000.
 
 ## Privacy
 
-Your writing examples and style profile are saved in your browser's local storage. When you analyze or generate text, the relevant inputs are sent to the server and the OpenAI API. The API key stays on the server. The shared site password is a simple access gate, not a full user-account system.
+Your writing examples and style profile are saved in your browser's local storage. When you analyze or generate text, the relevant text is sent to this site's server and the OpenAI API. The API key remains on the server. The site's shared password is a basic access gate, not a full account system.
+
+Do not add a real `.env` file or API key to GitHub. The checked-in `.env.example` contains placeholders only.
