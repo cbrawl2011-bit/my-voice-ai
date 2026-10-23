@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#11111a">
+<title>My Voice AI — write like you</title>
+<style>
+:root{color-scheme:dark;--bg:#0e0e15;--panel:#171720;--panel2:#1d1d29;--line:#30303d;--text:#f4f3fb;--muted:#a5a4b8;--purple:#a996ff;--purple2:#7862dc;--green:#70dfb0;--red:#ff8e9a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 78% -12%,#2a2350 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--purple);outline-offset:2px}.shell{max-width:1120px;padding:26px 24px 60px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:54px}.brand{display:flex;gap:12px;align-items:center}.logo{width:44px;height:44px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,#b9a9ff,#7458d6);color:#171322;font-size:22px;font-weight:900;box-shadow:0 8px 28px #8e76ff27}.brandname{font-weight:750;letter-spacing:-.4px}.tagline{color:var(--muted);font-size:12px}.pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;background:#171720b8}.dot{width:7px;height:7px;border-radius:50%;background:#777}.dot.good{background:var(--green);box-shadow:0 0 10px #70dfb055}.hero{max-width:780px;margin:0 auto 34px;text-align:center}.eyebrow{color:var(--purple);font-size:12px;font-weight:750;letter-spacing:1.9px;text-transform:uppercase}.hero h1{font-size:clamp(38px,6vw,66px);letter-spacing:-2.7px;line-height:1.02;margin:16px 0}.hero h1 span{background:linear-gradient(100deg,#fff 4%,#c2b4ff 57%,#8a74ed);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:590px;margin:0 auto;font-size:16px}.main{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:18px;align-items:start}.panel{background:linear-gradient(160deg,#1b1b27,#15151d);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 16px 48px #00000012}.panelhead{padding:21px 22px 17px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:12px}.number{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#30274f;color:#c5b9ff;font-weight:800;font-size:13px;flex:none}.panelhead h2{font-size:17px;letter-spacing:-.3px;margin:0}.sub{color:var(--muted);font-size:12px;margin-top:3px}.panelbody{padding:20px 22px 23px}.field{margin-bottom:17px}.field:last-child{margin-bottom:0}label{display:block;font-size:12px;color:#d5d3e5;font-weight:650;margin-bottom:8px}textarea,input,select{width:100%;background:#101018;border:1px solid #383747;border-radius:11px;padding:12px 13px;color:var(--text);resize:vertical;min-height:44px}textarea{min-height:155px;line-height:1.55}textarea::placeholder,input::placeholder{color:#747387}textarea:focus,input:focus,select:focus{border-color:#9c88ff;outline:none;box-shadow:0 0 0 3px #9c88ff18}.hint{font-size:11px;color:#85849b;margin-top:7px}.btn{border:1px solid transparent;border-radius:11px;padding:11px 15px;font-weight:720;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,background .15s}.btn:active{transform:scale(.985)}.primary{background:linear-gradient(120deg,#b6a4ff,#8a75ed);color:#171321;box-shadow:0 6px 20px #9480f333}.primary:hover{background:linear-gradient(120deg,#c7baff,#9b89ff)}.secondary{background:#242331;color:#eeeafa;border-color:#3b394e}.secondary:hover{background:#2d2b3d}.wide{width:100%}.row{display:flex;gap:10px;align-items:center}.row>*{min-width:0;flex:1}.actions{display:flex;gap:9px;margin-top:14px}.actions .btn{flex:1}.divider{height:1px;background:var(--line);margin:21px 0}.mini-title{font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:#9290a9;font-weight:750;margin-bottom:10px}.profilebox{white-space:pre-wrap;background:#101018;border:1px solid #343344;border-radius:12px;padding:14px;color:#dedbed;font-size:13px;min-height:100px;max-height:245px;overflow:auto;overflow-wrap:anywhere}.profilebox.empty{color:#77768b;font-style:italic}.writer textarea{min-height:112px}.output-wrap{margin-top:17px;display:none}.output-wrap.show{display:block}.output{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #474061;background:#13121c;border-radius:12px;padding:16px;font-size:14px;min-height:100px}.output-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}.statusmsg{display:none;border-radius:10px;padding:11px 13px;font-size:12px;margin-top:13px}.statusmsg.show{display:block}.statusmsg.error{background:#49232d;border:1px solid #773843;color:#ffd7dc}.statusmsg.ok{background:#193d32;border:1px solid #2c6652;color:#c0ffe3}.locked{display:none;margin:0 auto 25px;max-width:640px;padding:16px;border:1px solid #5b4a86;border-radius:15px;background:#211d32}.locked.show{display:block}.locked h3{margin:0 0 8px;font-size:15px}.lockrow{display:flex;gap:8px}.lockrow input{flex:1}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#737286;font-size:11px;margin-top:28px}.foot a{color:#aaa0e6;text-decoration:none}.foot a:hover{text-decoration:underline}.bottomnote{max-width:790px;color:#7b7a90;font-size:11px;text-align:center;margin:26px auto 0}.hidden{display:none!important}.smallbtn{background:transparent;border:1px solid var(--line);border-radius:9px;color:var(--muted);padding:7px 10px;font-size:11px}.smallbtn:hover{color:white;border-color:#76718d}.samplecount{float:right;color:#77768b;font-weight:400}.settingsgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tiny{font-size:11px;color:var(--muted);font-weight:400}@media(max-width:800px){.main{grid-template-columns:1fr}.hero h1{letter-spacing:-1.7px}.top{margin-bottom:38px}}@media(max-width:480px){.shell{padding:18px 13px 38px}.top{align-items:flex-start;margin-bottom:30px}.pill{padding:7px 9px}.hero p{font-size:14px}.panelhead{padding:17px}.panelbody{padding:17px}.actions{flex-direction:column}.settingsgrid{grid-template-columns:1fr}.tagline{max-width:190px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top">
+  <div class="brand"><div class="logo">v.</div><div><div class="brandname">my voice ai</div><div class="tagline">your words. your style. your AI.</div></div></div>
+  <div class="pill"><span id="statusDot" class="dot"></span><span id="statusText">Checking AI...</span></div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">✦ your personal writing assistant</div>
+  <h1>Write like <span>you.</span></h1>
+  <p>Teach the AI how you actually write, then use it to make new stuff that sounds natural instead of like a robot.</p>
+</section>
+
+<section id="lockPanel" class="locked">
+  <h3>🔒 This website is private</h3>
+  <div class="sub" style="margin-bottom:12px">Enter the website password to use your writing assistant.</div>
+  <div class="lockrow"><input id="sitePassword" type="password" placeholder="Website password" autocomplete="current-password"><button id="unlockBtn" class="btn primary">Unlock</button></div>
+  <div id="authMsg" class="statusmsg"></div>
+</section>
+
+<main class="main">
+  <section class="panel">
+    <div class="panelhead"><div class="number">01</div><div><h2>Teach your style</h2><div class="sub">Add messages you actually wrote</div></div></div>
+    <div class="panelbody">
+      <div class="field">
+        <label for="samples">Your writing examples <span id="count" class="samplecount">0 characters</span></label>
+        <textarea id="samples" placeholder="Paste texts, school answers, messages, or anything else you've written..."></textarea>
+        <div class="hint">More real examples usually make the style profile more accurate. Aim for at least 80 characters.</div>
+      </div>
+      <div class="field">
+        <label for="notes">Anything else the AI should know? <span class="tiny">(optional)</span></label>
+        <input id="notes" placeholder="e.g. keep school answers really simple">
+      </div>
+      <button id="analyzeBtn" class="btn primary wide">✦ Analyze my writing</button>
+      <div id="analyzeMsg" class="statusmsg"></div>
+      <div class="divider"></div>
+      <div class="row" style="align-items:center;margin-bottom:11px"><div class="mini-title" style="margin:0">Your style profile</div><button id="clearBtn" class="smallbtn" style="flex:0 0 auto">Clear saved data</button></div>
+      <div id="profile" class="profilebox empty">Your style profile will show up here after you analyze your examples.</div>
+      <div class="actions"><button id="saveBtn" class="btn secondary">Save style</button><button id="exportBtn" class="btn secondary">Export profile</button></div>
+    </div>
+  </section>
+
+  <section class="panel writer">
+    <div class="panelhead"><div class="number">02</div><div><h2>Write in your voice</h2><div class="sub">Tell it what you need</div></div></div>
+    <div class="panelbody">
+      <div class="field">
+        <label for="prompt">What do you want it to write?</label>
+        <textarea id="prompt" placeholder="e.g. explain the causes of World War 1 in a simple way..." style="min-height:122px"></textarea>
+      </div>
+      <div class="settingsgrid">
+        <div class="field"><label for="style">Writing type</label><select id="style"><option value="natural">My normal style</option><option value="school">Schoolwork</option><option value="message">Text message</option><option value="detailed">More detailed</option></select></div>
+        <div class="field"><label for="length">Answer length</label><select id="length"><option value="tiny">Very short</option><option value="short" selected>Short</option><option value="medium">Medium</option><option value="long">Long</option></select></div>
+      </div>
+      <div class="field"><label for="context">Extra instructions <span class="tiny">(optional)</span></label><input id="context" placeholder="e.g. one paragraph, no bullet points"></div>
+      <button id="writeBtn" class="btn primary wide">✦ Write like me</button>
+      <div id="writeMsg" class="statusmsg"></div>
+      <div id="outputWrap" class="output-wrap"><div class="mini-title">Your draft</div><div id="output" class="output"></div><div class="output-actions"><button id="regenBtn" class="smallbtn">↻ Try again</button><button id="copyBtn" class="btn secondary">Copy text</button></div></div>
+    </div>
+  </section>
+</main>
+
+<div class="bottomnote">Your examples and style profile are saved in this browser. When you analyze or write, the text is sent to the AI service. Keep private information out of examples.</div>
+<footer class="foot"><span>MY VOICE AI · PERSONAL WRITING TOOL</span><span>API usage may have a separate cost.</span></footer>
+</div>
+<script>
+(function(){
+"use strict";
+const $ = id => document.getElementById(id);
+const KEYS = {samples:"myVoiceSamples",profile:"myVoiceProfile",notes:"myVoiceNotes",pass:"myVoiceSitePass"};
+let siteProtected = false;
+let lastDraft = "";
+let ready = false;
+
+function showMsg(id, text, kind){
+  const el=$(id); el.textContent=text; el.className="statusmsg show "+(kind||"error");
+}
+function hideMsg(id){$(id).className="statusmsg";}
+function setBusy(id,busy,text){
+  const el=$(id); el.disabled=busy;
+  if(busy){el.dataset.old=el.textContent;el.textContent=text||"Working...";}
+  else if(el.dataset.old){el.textContent=el.dataset.old;delete el.dataset.old;}
+}
+function updateCount(){$("count").textContent=$("samples").value.length.toLocaleString()+" characters";}
+function setProfile(text){
+  const el=$("profile"); el.textContent=text||"Your style profile will show up here after you analyze your examples.";
+  el.className="profilebox"+(text?"":" empty");
+}
+function getSavedPass(){return sessionStorage.getItem(KEYS.pass)||"";}
+async function api(path,body){
+  const headers={"Content-Type":"application/json"};
+  if(siteProtected && getSavedPass()) headers["X-Site-Password"]=getSavedPass();
+  const response=await fetch(path,{method:"POST",headers,body:JSON.stringify(body||{})});
+  let data={};try{data=await response.json();}catch(_){}
+  if(!response.ok) throw new Error(data.error||"Something went wrong. Please try again.");
+  return data;
+}
+function restore(){
+  $("samples").value=localStorage.getItem(KEYS.samples)||"";
+  $("notes").value=localStorage.getItem(KEYS.notes)||"";
+  setProfile(localStorage.getItem(KEYS.profile)||"");
+  updateCount();
+}
+function save(){
+  localStorage.setItem(KEYS.samples,$("samples").value);
+  localStorage.setItem(KEYS.notes,$("notes").value);
+  localStorage.setItem(KEYS.profile,$("profile").classList.contains("empty")?"":$("profile").textContent);
+}
+async function checkStatus(){
+  try{
+    const r=await fetch("/api/status");const d=await r.json();
+    siteProtected=!!d.protected;
+    if(siteProtected && !getSavedPass()) $("lockPanel").classList.add("show");
+    else $("lockPanel").classList.remove("show");
+    ready=!!d.ready;
+    $("statusDot").className="dot"+(ready?" good":"");
+    $("statusText").textContent=siteProtected&&!getSavedPass()?"Password needed":ready?"AI ready":"API key needed";
+    if(!ready) showMsg("analyzeMsg","The site is online, but the owner still needs to add the OpenAI API key in the hosting settings.","error");
+  }catch(_){$("statusText").textContent="Connection issue";}
+}
+async function unlock(){
+  hideMsg("authMsg");setBusy($("unlockBtn"),true,"Checking...");
+  const pwd=$("sitePassword").value;
+  try{
+    const headers={"Content-Type":"application/json","X-Site-Password":pwd};
+    const r=await fetch("/api/auth",{method:"POST",headers,body:"{}"});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||"Couldn't unlock the site.");
+    sessionStorage.setItem(KEYS.pass,pwd);
+    $("lockPanel").classList.remove("show");
+    $("sitePassword").value="";
+    showMsg("analyzeMsg","Website unlocked for this browser session.","ok");
+    await checkStatus();
+  }catch(e){showMsg("authMsg",e.message,"error");}
+  finally{setBusy($("unlockBtn"),false);}
+}
+async function analyze(){
+  hideMsg("analyzeMsg");
+  const samples=$("samples").value.trim();
+  if(samples.length<80){showMsg("analyzeMsg","Add a few more of your own messages first (at least 80 characters).","error");return;}
+  setBusy($("analyzeBtn"),true,"Analyzing your style...");
+  try{
+    const d=await api("/api/analyze",{samples,notes:$("notes").value});
+    setProfile(d.profile);save();
+    showMsg("analyzeMsg","Your style profile is ready. You can edit it before writing.","ok");
+  }catch(e){showMsg("analyzeMsg",e.message,"error");}
+  finally{setBusy($("analyzeBtn"),false);}
+}
+async function writeDraft(){
+  hideMsg("writeMsg");
+  const prompt=$("prompt").value.trim();
+  if(!prompt){showMsg("writeMsg","Tell me what you want the AI to write first.","error");$("prompt").focus();return;}
+  save();setBusy($("writeBtn"),true,"Writing in your style...");
+  try{
+    const d=await api("/api/write",{
+      prompt, profile:$("profile").classList.contains("empty")?"":$("profile").textContent,
+      samples:$("samples").value, context:$("context").value, style:$("style").value,length:$("length").value
+    });
+    lastDraft=d.draft;$("output").textContent=lastDraft;$("outputWrap").classList.add("show");
+    showMsg("writeMsg","Draft generated. Read it over and make any changes you need.","ok");
+  }catch(e){showMsg("writeMsg",e.message,"error");}
+  finally{setBusy($("writeBtn"),false);}
+}
+function exportData(){
+  const data={samples:$("samples").value,notes:$("notes").value,profile:$("profile").classList.contains("empty")?"":$("profile").textContent,exportedAt:new Date().toISOString()};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="my-voice-ai-profile.json";a.click();URL.revokeObjectURL(url);
+}
+$("samples").addEventListener("input",updateCount);
+$("samples").addEventListener("input",()=>localStorage.setItem(KEYS.samples,$("samples").value));
+$("notes").addEventListener("change",()=>localStorage.setItem(KEYS.notes,$("notes").value));
+$("analyzeBtn").addEventListener("click",analyze);
+$("writeBtn").addEventListener("click",writeDraft);
+$("regenBtn").addEventListener("click",writeDraft);
+$("unlockBtn").addEventListener("click",unlock);
+$("sitePassword").addEventListener("keydown",e=>{if(e.key==="Enter")unlock();});
+$("saveBtn").addEventListener("click",()=>{save();showMsg("analyzeMsg","Saved in this browser.","ok");});
+$("exportBtn").addEventListener("click",exportData);
+$("copyBtn").addEventListener("click",async()=>{
+  try{await navigator.clipboard.writeText(lastDraft);$("copyBtn").textContent="Copied!";setTimeout(()=>{$("copyBtn").textContent="Copy text";},1400);}
+  catch(_){showMsg("writeMsg","Copy was blocked by the browser. Select the draft and copy it manually.","error");}
+});
+$("clearBtn").addEventListener("click",()=>{
+  if(!confirm("Clear your saved examples and style profile from this browser?"))return;
+  localStorage.removeItem(KEYS.samples);localStorage.removeItem(KEYS.notes);localStorage.removeItem(KEYS.profile);
+  $("samples").value="";$("notes").value="";setProfile("");updateCount();hideMsg("analyzeMsg");
+});
+restore();checkStatus();
+})();
+</script>
+</body>
+</html>
