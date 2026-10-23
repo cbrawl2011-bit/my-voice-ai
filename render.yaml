@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: my-voice-ai
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 2 --threads 4 --timeout 120
+    healthCheckPath: /api/status
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SITE_PASSWORD
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5.5
